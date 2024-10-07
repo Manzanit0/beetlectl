@@ -1,6 +1,14 @@
 networks:
-  app-tier:
+  kafka-ui-net:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.0.0/30
+  kafka-1-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.0.4/30
 
 services:
   kafka-ui:
@@ -15,7 +23,7 @@ services:
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-1:9092
       DYNAMIC_CONFIG_ENABLED: 'true'
     networks:
-      - app-tier
+      - kafka-ui-net
     logging:
       driver: "json-file"
       options:
@@ -24,7 +32,7 @@ services:
   kafka-1:
     image: 'bitnami/kafka:3.8.0'
     networks:
-      - app-tier
+      - kafka-1-net
     ports:
       - "29091:9094"
     environment:

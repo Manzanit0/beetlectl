@@ -20,7 +20,7 @@ services:
       - kafka-1
     environment:
       KAFKA_CLUSTERS_0_NAME: kafka-1
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-1:9092
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: 172.16.0.5:9092
       DYNAMIC_CONFIG_ENABLED: 'true'
     networks:
       - kafka-ui-net

@@ -52,6 +52,11 @@ services:
       KAFKA_KRAFT_CLUSTER_ID: XkpGZQ27R3eTl3OdTm2LYA # 16 byte base64-encoded UUID
     volumes:
       - kafka-1-data:/bitnami/kafka  
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
 
   kafka-2:
     container_name: kafka-2
@@ -74,6 +79,11 @@ services:
       KAFKA_KRAFT_CLUSTER_ID: XkpGZQ27R3eTl3OdTm2LYA # 16 byte base64-encoded UUID
     volumes:
       - kafka-2-data:/bitnami/kafka  
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
 
   kafka-3:
     container_name: kafka-3
@@ -96,4 +106,9 @@ services:
       KAFKA_KRAFT_CLUSTER_ID: XkpGZQ27R3eTl3OdTm2LYA # 16 byte base64-encoded UUID
     volumes:
       - kafka-3-data:/bitnami/kafka  
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
 
